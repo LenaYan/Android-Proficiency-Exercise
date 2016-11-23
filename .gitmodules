@@ -1,0 +1,3 @@
+[submodule "GankClient/BaseLibrary"]
+	path = GankClient/BaseLibrary
+	url = git@github.com:LenaYan/BaseLibrary.git
