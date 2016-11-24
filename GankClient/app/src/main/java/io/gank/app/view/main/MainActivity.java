@@ -21,10 +21,9 @@ public class MainActivity extends BaseDIActivity implements MainContract.View {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ActivityMainBinding binding = bindLayout(R.layout.activity_main);
+        ActivityMainBinding binding = bindLayout(R.layout.activity_main, false);
         binding.setViewModel(viewModel);
     }
-
 
     @Override
     protected ILifeCycle getPageLifeCycle() {
@@ -39,6 +38,5 @@ public class MainActivity extends BaseDIActivity implements MainContract.View {
                 .mainVMModule(new MainVMModule(this))
                 .build()
                 .inject(this);
-
     }
 }
