@@ -5,8 +5,11 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 import com.ray.mvvm.lib.model.model.topic.TopicEntity;
-import com.ray.mvvm.lib.view.adapter.OnItemClick;
 import com.ray.mvvm.lib.view.adapter.list.base.ListAdapter;
+
+import io.gank.app.databinding.ListCellTopicBinding;
+import io.gank.app.view.main.contract.TopicListContract;
+import io.gank.app.view.topic.vm.TopicCellVM;
 
 /**
  * Created by Android Studio.
@@ -26,18 +29,21 @@ import com.ray.mvvm.lib.view.adapter.list.base.ListAdapter;
  * \               ||     ||
  */
 public class TopicListAdapter extends ListAdapter<TopicEntity> {
-    public TopicListAdapter(OnItemClick<TopicEntity> itemClick) {
-        super(itemClick);
+
+    private TopicListContract.TopicCellView topicCellView;
+
+    public TopicListAdapter(TopicListContract.TopicCellView topicCellView) {
+        this.topicCellView = topicCellView;
     }
 
     @Override
     protected ViewDataBinding createBinding(LayoutInflater layoutInflater, ViewGroup parent, int viewType) {
-        return null;
+        return ListCellTopicBinding.inflate(layoutInflater, parent, false);
     }
 
     @Override
     protected Object createViewModel(int viewType, int position) {
-        return super.createViewModel(viewType, position);
+        return new TopicCellVM(getItem(position), position, topicCellView);
     }
 
 }

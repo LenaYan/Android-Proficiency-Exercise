@@ -2,12 +2,6 @@
 
     <string name="app_name">GankClient</string>
 
-    <string-array name="main_tab_title">
-        <item>Android</item>
-        <item>IOS</item>
-        <item>Web</item>
-    </string-array>
-
     <string name="title_activity_main">MainActivity</string>
     <string name="title_activity_topic_detail">TopicDetailActivity</string>
 

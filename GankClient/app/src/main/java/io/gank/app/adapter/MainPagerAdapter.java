@@ -4,6 +4,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
+import com.ray.mvvm.lib.model.service.TopicService;
+
 import io.gank.app.view.main.TopicListFragment;
 
 /**
@@ -30,30 +32,39 @@ public class MainPagerAdapter extends FragmentStatePagerAdapter {
     private static final int TAB_WEB = 2;
     private static final int TAB_COUNT = 3;
 
-    private final String[] titles;
-
-    public MainPagerAdapter(FragmentManager fm, String[] titles) {
+    public MainPagerAdapter(FragmentManager fm) {
         super(fm);
-        this.titles = titles;
     }
 
     @Override
     public Fragment getItem(int position) {
+        String type;
         switch (position) {
-            case TAB_ANDROID:
-                return new TopicListFragment();
-            case TAB_IOS:
-                return new TopicListFragment();
-            case TAB_WEB:
-                return new TopicListFragment();
             default:
-                return null;
+            case TAB_ANDROID:
+                type = TopicService.TopicType.ANDROID;
+                break;
+            case TAB_IOS:
+                type = TopicService.TopicType.IOS;
+                break;
+            case TAB_WEB:
+                type = TopicService.TopicType.WEB;
+                break;
         }
+        return TopicListFragment.getInstance(type);
     }
 
     @Override
     public CharSequence getPageTitle(int position) {
-        return titles[position];
+        switch (position) {
+            default:
+            case TAB_ANDROID:
+                return TopicService.TopicType.ANDROID;
+            case TAB_IOS:
+                return TopicService.TopicType.IOS;
+            case TAB_WEB:
+                return TopicService.TopicType.WEB;
+        }
     }
 
     @Override

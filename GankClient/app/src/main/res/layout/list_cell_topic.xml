@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <import type="io.gank.app.view.topic.vm.TopicCellVM" />
+
+        <variable
+            name="viewModel"
+            type="TopicCellVM" />
+    </data>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/padding_xl">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/padding_xl"
+            android:text="@{viewModel.entity.desc, default = Desc}"
+            android:textColor="@color/text_black"
+            android:textSize="@dimen/text_xl" />
+
+        <TextView
+            android:id="@+id/user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/title"
+            android:text="@{viewModel.entity.who, default = Who}"
+            android:textColor="@color/text_gray"
+            android:textSize="@dimen/text_m" />
+
+        <TextView
+            android:id="@+id/date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/title"
+            android:text="@{viewModel.entity.publishedAt, default = publishedAt}"
+            android:textColor="@color/text_gray"
+            android:textSize="@dimen/text_m" />
+
+    </RelativeLayout>
+</layout>

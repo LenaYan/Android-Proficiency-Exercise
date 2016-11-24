@@ -1,11 +1,13 @@
 package io.gank.app.view.main;
 
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.ray.mvvm.lib.model.model.topic.TopicEntity;
+import com.ray.mvvm.lib.model.service.TopicService;
 import com.ray.mvvm.lib.view.base.page.BaseDIFragment;
 import com.ray.mvvm.lib.view.base.view.ILifeCycle;
 
@@ -22,12 +24,28 @@ public class TopicListFragment extends BaseDIFragment implements TopicListContra
 
     @Inject TopicListVM viewModel;
 
+    public static final TopicListFragment getInstance(@TopicService.TopicType String type) {
+        TopicListFragment topicListFragment = new TopicListFragment();
+        Bundle bundle = new Bundle();
+        bundle.putString(TopicService.TopicType.KEY, type);
+        topicListFragment.setArguments(bundle);
+        return topicListFragment;
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         FragmentTopicListBinding binding = FragmentTopicListBinding.inflate(inflater, container, false);
         binding.setViewModel(viewModel);
         return binding.getRoot();
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        Bundle bundle = getArguments();
+        String type = bundle.getString(TopicService.TopicType.KEY);
+        viewModel.init(type);
     }
 
     @Override

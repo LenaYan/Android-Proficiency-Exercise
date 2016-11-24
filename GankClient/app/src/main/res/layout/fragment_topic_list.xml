@@ -30,7 +30,8 @@
                 android:paddingBottom="@dimen/padding_l"
                 app:adapter="@{viewModel.adapter}"
                 app:itemAnimator="@{null}"
-                app:layoutManager="@{viewModel.layoutManager}" />
+                app:layoutManager="@{viewModel.layoutManager}"
+                app:isShowDivider="@{true}" />
         </android.support.v4.widget.SwipeRefreshLayout>
 
     </RelativeLayout>

@@ -1,7 +1,10 @@
 package io.gank.app.view.main.contract;
 
 import com.ray.mvvm.lib.di.scope.PerFragment;
+import com.ray.mvvm.lib.model.http.ExObserver;
+import com.ray.mvvm.lib.model.model.ListRespEntity;
 import com.ray.mvvm.lib.model.model.topic.TopicEntity;
+import com.ray.mvvm.lib.model.service.TopicService;
 import com.ray.mvvm.lib.presenter.IPresenter;
 import com.ray.mvvm.lib.view.adapter.OnItemClick;
 import com.ray.mvvm.lib.view.base.comp.FragmentComp;
@@ -26,7 +29,7 @@ public interface TopicListContract {
     }
 
     interface Presenter extends IPresenter {
-
+        void requestTopicList(@TopicService.TopicType String type, int page, ExObserver<ListRespEntity<TopicEntity>> observer);
     }
 
 }

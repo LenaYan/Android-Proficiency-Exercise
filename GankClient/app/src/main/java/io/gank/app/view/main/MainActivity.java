@@ -20,7 +20,7 @@ public class MainActivity extends BaseDIActivity implements MainContract.View {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        bindLayout(R.layout.activity_main, false);
+        bindLayout(R.layout.activity_main, viewModel, false);
     }
 
     @Override
