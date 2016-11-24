@@ -52,7 +52,7 @@ ext {
     retrolambdaJavaVersion = JavaVersion.VERSION_1_7
 
     androidSupportPkg = 'com.android.support'
-    androidSupportVersion = '25.0.0'
+    androidSupportVersion = '25.0.1'
     squareUpPkg = 'com.squareup'
     okHttpPkg = 'com.squareup.okhttp3'
     okHttpVersion = '3.3.1'

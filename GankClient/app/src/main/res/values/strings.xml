@@ -2,6 +2,8 @@
 
     <string name="app_name">GankClient</string>
 
+    <string name="search">搜索</string>
+
     <string name="title_activity_main">MainActivity</string>
     <string name="title_activity_topic_detail">TopicDetailActivity</string>
 
