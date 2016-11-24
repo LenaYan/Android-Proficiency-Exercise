@@ -5,19 +5,22 @@
 
         <import type="io.gank.app.view.topic.vm.TopicCellVM" />
 
+        <import type="com.ray.mvvm.lib.widget.utils.DateUtil" />
+
         <variable
             name="viewModel"
             type="TopicCellVM" />
     </data>
 
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <RelativeLayout style="@style/ClickableStyle"
+        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:onClick="@{viewModel::onContentClicked}"
         android:orientation="vertical"
         android:paddingLeft="@dimen/padding_xl"
         android:paddingRight="@dimen/padding_xl"
         android:paddingTop="@dimen/padding_xl">
-
 
         <TextView
             android:id="@+id/title"
@@ -43,7 +46,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_below="@id/title"
-            android:text="@{viewModel.entity.publishedAt, default = publishedAt}"
+            android:text="@{DateUtil.formatDate(viewModel.entity.createdAt), default = createdAt}"
             android:textColor="@color/text_gray"
             android:textSize="@dimen/text_l" />
 
