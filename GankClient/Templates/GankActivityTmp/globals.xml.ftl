@@ -5,7 +5,7 @@
     <global id="appBarLayoutName" value="${layoutName}" />
     <global id="fragmentClass" value="${activityClass}Fragment" />
     <global id="moduleNameUncapFirst" type="string" value="${pageName?uncap_first}VMModule"/>
-    <global id="realAppPackage" type="string" value="${applicationPackage?replace('.debug','')}"/>
+    <global id="realAppPackage" type="string" value="${applicationPackage}"/>
     <global id="libPackage" type="string" value="com.ray.mvvm.lib"/>
 
 </globals>
