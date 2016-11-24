@@ -8,7 +8,6 @@ import com.ray.mvvm.lib.view.base.view.ILifeCycle;
 import javax.inject.Inject;
 
 import io.gank.app.R;
-import io.gank.app.databinding.ActivityMainBinding;
 import io.gank.app.view.main.contract.DaggerMainContract_Comp;
 import io.gank.app.view.main.contract.MainContract;
 import io.gank.app.view.main.vm.MainVM;
@@ -21,8 +20,7 @@ public class MainActivity extends BaseDIActivity implements MainContract.View {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ActivityMainBinding binding = bindLayout(R.layout.activity_main, false);
-        binding.setViewModel(viewModel);
+        bindLayout(R.layout.activity_main, false);
     }
 
     @Override
