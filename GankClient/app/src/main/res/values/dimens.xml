@@ -1,3 +1,22 @@
 <resources>
     <dimen name="fab_margin">16dp</dimen>
+
+    <!--TextSize-->
+    <dimen name="text_micro">6sp</dimen>
+    <dimen name="text_s">8sp</dimen>
+    <dimen name="text_m">10sp</dimen>
+    <dimen name="text_l">13sp</dimen>
+    <dimen name="text_xl">15sp</dimen>
+    <dimen name="text_xxl">17sp</dimen>
+    <dimen name="text_xxxl">23sp</dimen>
+
+    <!--Padding-->
+    <dimen name="padding_ss">1dp</dimen>
+    <dimen name="padding_s">3dp</dimen>
+    <dimen name="padding_m">5dp</dimen>
+    <dimen name="padding_l">8dp</dimen>
+    <dimen name="padding_xl">12dp</dimen>
+    <dimen name="padding_xxl">15dp</dimen>
+    <dimen name="padding_bottom">20dp</dimen>
+
 </resources>

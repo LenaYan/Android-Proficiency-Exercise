@@ -9,5 +9,6 @@
     </string-array>
 
     <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_topic_detail">TopicDetailActivity</string>
 
 </resources>
