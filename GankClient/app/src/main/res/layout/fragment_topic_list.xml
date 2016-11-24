@@ -31,7 +31,7 @@
                 app:adapter="@{viewModel.adapter}"
                 app:itemAnimator="@{null}"
                 app:layoutManager="@{viewModel.layoutManager}"
-                app:isShowDivider="@{true}" />
+                app:onLoadMore="@{viewModel}" />
         </android.support.v4.widget.SwipeRefreshLayout>
 
     </RelativeLayout>

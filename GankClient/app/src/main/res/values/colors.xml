@@ -6,5 +6,6 @@
 
     <color name="text_black">#0A0A0A</color>
     <color name="text_gray">#cccccc</color>
+    <color name="divider_gray">#6AD6D6D6</color>
 
 </resources>
