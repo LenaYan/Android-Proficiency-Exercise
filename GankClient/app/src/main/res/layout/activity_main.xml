@@ -34,6 +34,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:adapter="@{viewModel.pagerAdapter}"
+                app:tabIndicatorColor="@color/tab_indicator_color"
                 app:tabTextAppearance="@style/TabTextAppearance"
                 app:viewPager="@{@id/viewPager}" />
         </android.support.design.widget.AppBarLayout>

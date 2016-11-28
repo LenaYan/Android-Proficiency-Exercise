@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <import type="io.gank.app.view.topic.vm.TopicCellVM" />
+
+        <import type="com.ray.mvvm.lib.widget.utils.DateUtil" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="TopicCellVM" />
+    </data>
+
+    <FrameLayout style="@style/ClickableStyle"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:foreground="?selectableItemBackground"
+        android:onClick="@{viewModel::onContentClicked}">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="185dp"
+                android:layout_alignParentStart="true"
+                android:visibility="@{viewModel.showImg ? View.VISIBLE : View.GONE, default = gone}"
+                app:callback="@{viewModel}"
+                app:topicImageUrl="@{viewModel.imageUrl}" />
+
+            <RelativeLayout
+                android:id="@+id/info_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:background="@{viewModel.showImg ? @color/bg_black_tran_42 : @color/bg_white, default = @color/bg_black_tran_42}"
+                android:orientation="vertical"
+                android:paddingBottom="@dimen/padding_xl"
+                android:paddingTop="@dimen/padding_xl">
+
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/padding_xl"
+                    android:layout_marginLeft="@dimen/padding_xl"
+                    android:layout_marginRight="@dimen/padding_xl"
+                    android:maxLines="1"
+                    android:text="@{viewModel.entity.desc, default = Desc}"
+                    android:textColor="@{viewModel.showImg ? @color/text_white : @color/text_black, default = @color/text_white}"
+                    android:textSize="@dimen/text_xl" />
+
+                <TextView
+                    android:id="@+id/user_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/title"
+                    android:layout_marginLeft="@dimen/padding_xl"
+                    android:text="@{viewModel.entity.who, default = Who}"
+                    android:textColor="@color/text_gray"
+                    android:textSize="@dimen/text_l" />
+
+                <TextView
+                    android:id="@+id/date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@id/title"
+                    android:layout_marginRight="@dimen/padding_xl"
+                    android:text="@{DateUtil.formatDate(viewModel.entity.createdAt), default = createdAt}"
+                    android:textColor="@color/text_gray"
+                    android:textSize="@dimen/text_l" />
+
+            </RelativeLayout>
+
+            <View
+                android:id="@+id/divider"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/divider"
+                android:layout_below="@id/info_layout"
+                android:background="@color/divider_gray"
+                android:visibility="@{viewModel.showImg ? View.GONE : View.VISIBLE, default = gone}" />
+
+        </RelativeLayout>
+    </FrameLayout>
+
+</layout>

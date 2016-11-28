@@ -18,8 +18,6 @@
         android:layout_height="wrap_content"
         android:onClick="@{viewModel::onContentClicked}"
         android:orientation="vertical"
-        android:paddingLeft="@dimen/padding_xl"
-        android:paddingRight="@dimen/padding_xl"
         android:paddingTop="@dimen/padding_xl">
 
         <TextView
@@ -27,6 +25,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/padding_xl"
+            android:layout_marginLeft="@dimen/padding_xl"
             android:text="@{viewModel.entity.desc, default = Desc}"
             android:textColor="@color/text_black"
             android:textSize="@dimen/text_xl" />
@@ -36,6 +35,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/title"
+            android:layout_marginLeft="@dimen/padding_xl"
             android:text="@{viewModel.entity.who, default = Who}"
             android:textColor="@color/text_gray"
             android:textSize="@dimen/text_l" />
@@ -46,6 +46,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_below="@id/title"
+            android:layout_marginRight="@dimen/padding_xl"
             android:text="@{DateUtil.formatDate(viewModel.entity.createdAt), default = createdAt}"
             android:textColor="@color/text_gray"
             android:textSize="@dimen/text_l" />
@@ -54,7 +55,6 @@
             android:id="@+id/divider"
             android:layout_width="match_parent"
             android:layout_height="@dimen/divider"
-            android:layout_alignParentBottom="true"
             android:layout_below="@id/user_name"
             android:layout_marginTop="@dimen/padding_xl"
             android:background="@color/divider_gray" />

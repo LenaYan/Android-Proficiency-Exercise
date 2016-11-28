@@ -6,10 +6,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.ray.mvvm.lib.model.http.ExSubscriber;
 import com.ray.mvvm.lib.model.model.topic.TopicEntity;
 import com.ray.mvvm.lib.model.service.TopicService;
 import com.ray.mvvm.lib.view.base.page.BaseDIFragment;
 import com.ray.mvvm.lib.view.base.view.ILifeCycle;
+import com.tbruyelle.rxpermissions.RxPermissions;
 
 import javax.inject.Inject;
 
@@ -19,6 +21,8 @@ import io.gank.app.view.main.contract.TopicListContract;
 import io.gank.app.view.main.vm.TopicListVM;
 import io.gank.app.view.main.vm.module.TopicListVMModule;
 import io.gank.app.view.topic.TopicDetailActivity;
+
+import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
 
 public class TopicListFragment extends BaseDIFragment implements TopicListContract.View {
 
@@ -45,7 +49,21 @@ public class TopicListFragment extends BaseDIFragment implements TopicListContra
         super.onActivityCreated(savedInstanceState);
         Bundle bundle = getArguments();
         String type = bundle.getString(TopicService.TopicType.KEY);
-        viewModel.init(type);
+        RxPermissions.getInstance(getActivity())
+                .request(WRITE_EXTERNAL_STORAGE)
+                .subscribe(new ExSubscriber<Boolean>() {
+                    @Override
+                    public void onError(Throwable e) {
+
+                    }
+
+                    @Override
+                    public void onNext(Boolean granted) {
+                        if (granted) {
+                            viewModel.init(type);
+                        }
+                    }
+                });
     }
 
     @Override

@@ -2,12 +2,17 @@
 <resources>
     <color name="colorPrimary">#4D6992</color>
     <color name="colorPrimaryDark">#375683</color>
-    <color name="colorAccent">#FFFF8C</color>
+    <color name="colorAccent">#FF4081</color>
 
+    <color name="tab_indicator_color">#FFFF8C</color>
+
+    <color name="text_white">#FFFFFF</color>
     <color name="text_black">#0A0A0A</color>
     <color name="text_gray">#cccccc</color>
     <color name="divider_gray">#6AD6D6D6</color>
+    <color name="bg_white">#FFFFFF</color>
     <color name="bg_gray_light_F4">#f4f5f6</color>
+    <color name="bg_black_tran_42">#6b000000</color>
 
     <drawable name="transparent">@android:color/transparent</drawable>
     <drawable name="bg_gray_transparent">#0F363636</drawable>
